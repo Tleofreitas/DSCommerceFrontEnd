@@ -13,6 +13,20 @@ export default function Cart() {
         setCart(cartService.getCart());
     }
 
+    function handleIncreaseItem(productId: number) {
+        // Incrementar no Local Storage
+        cartService.increaseItem(productId);
+        // Incrementar no Componente
+        setCart(cartService.getCart());
+    }
+
+    function handleDecreaseItem(productId: number) {
+        // Decrementar no Local Storage
+        cartService.decreaseItem(productId);
+        // Decrementar no Componente
+        setCart(cartService.getCart());
+    }
+
     return (
         <main>
             <section id="cart-container-section" className="dsc-container">
@@ -20,7 +34,7 @@ export default function Cart() {
                     cart.items.length === 0
                         ? (
                             <div>
-                                <h2 className='dsc-section-title dsc-mb20'>Seu cattinho está vázio !</h2>
+                                <h2 className='dsc-section-title dsc-mb20'>Seu carrinho está vázio !</h2>
                             </div>
                         )
                         : (
@@ -33,9 +47,9 @@ export default function Cart() {
                                                 <div className="dsc-cart-item-description">
                                                     <h3>{item.name}</h3>
                                                     <div className="dsc-cart-item-quantity-container">
-                                                        <div className="dsc-cart-item-quantity-btn">-</div>
+                                                        <div onClick={() => handleDecreaseItem(item.productId)} className="dsc-cart-item-quantity-btn">-</div>
                                                         <p>{item.quantity}</p>
-                                                        <div className="dsc-cart-item-quantity-btn">+</div>
+                                                        <div onClick={() => handleIncreaseItem(item.productId)} className="dsc-cart-item-quantity-btn">+</div>
                                                     </div>
                                                 </div>
                                             </div>
