@@ -3,6 +3,7 @@ import ClientHome from './routes/ClientHome';
 import Catalog from './routes/ClientHome/Catalog';
 import ProductDetails from './routes/ClientHome/ProductDetails';
 import Cart from './routes/ClientHome/Cart';
+import Login from './routes/ClientHome/Login';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
           <Route path="catalog" element={<Catalog />} />
           <Route path="product-details/:productId" element={<ProductDetails />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />}>
         </Route>

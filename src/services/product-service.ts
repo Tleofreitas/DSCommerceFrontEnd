@@ -1,4 +1,5 @@
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
+import { requestBackEnd } from "../utils/requests";
 import { BASE_URL } from "../utils/system";
 
 // Buscar TUDO anterior a Search Bar
@@ -16,9 +17,9 @@ export function findPageRequest(page: number, name: string, size = 12, sort = "n
             page, name, size, sort
         }
     }
-    return axios(config);
+    return requestBackEnd(config);
 }
 
 export function findById(id: number) {
-    return axios.get(`${BASE_URL}/products/${id}`);
+    return requestBackEnd({url: `/products/${id}`});
 }
