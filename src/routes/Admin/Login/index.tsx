@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { CredentialsDTO } from '../../../models/auth';
+import { useState } from "react";
+import { CredentialsDTO } from "../../../models/auth";
 import * as authService from '../../../services/auth-service';
 import './styles.css';
 
@@ -14,8 +14,8 @@ export default function Login() {
         event.preventDefault();
         authService.loginRequest(formData)
             .then(response => {
-                //authService.saveAccessToken(response.data.access_token);
-                console.log(response.data);
+                authService.saveAccessToken(response.data.access_token);
+                //console.log(response.data);
             })
             .catch(error => {
                 console.log("Erro no login", error);
@@ -37,7 +37,7 @@ export default function Login() {
                         <div className="dsc-form-controls-container">
                             <div>
                                 <input
-                                    name='username'
+                                    name="username"
                                     value={formData.username}
                                     className="dsc-form-control"
                                     type="text"
@@ -48,7 +48,7 @@ export default function Login() {
                             </div>
                             <div>
                                 <input
-                                    name='password'
+                                    name="password"
                                     value={formData.password}
                                     className="dsc-form-control"
                                     type="password"

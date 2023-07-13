@@ -1,14 +1,14 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { BASE_URL } from "./system";
 import * as authService from '../services/auth-service';
-import {history} from './history';
+import { history } from './history';
 
 export function requestBackEnd(config: AxiosRequestConfig) {
 
     const headers = config.withCredentials
         ? { // config.withCredentials == true, acrescenta o cabeçalho de autorização na requisiçao
             ...config.headers,
-            Authorizaton: "Bearer " + authService.getAccessToken()
+            Authorization: "Bearer " + authService.getAccessToken()
         } // config.withCredentials == false, manter o que já tinha
         : config.headers;
 
@@ -35,10 +35,10 @@ axios.interceptors.response.use(
     },
     function (error) {
         // DO SOMETHING WITH RESPONSE ERROR
-        if (error.response.data.status === 401) {
+        if (error.response.status === 401) {
             history.push("/login");
         }
-        if (error.response.data.status === 403) {
+        if (error.response.status === 403) {
             history.push("/catalog");
         }
         return Promise.reject(error);

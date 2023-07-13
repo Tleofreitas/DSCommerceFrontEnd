@@ -1,9 +1,10 @@
 import { AxiosRequestConfig } from "axios";
 import QueryString from "qs";
-import { CredentialsDTO } from "../models/auth";
+import { AccessTokenPayloadDTO, CredentialsDTO } from "../models/auth";
 import { requestBackEnd } from "../utils/requests";
 import { CLIENT_ID, CLIENT_SECRET } from "../utils/system";
 import * as accessTokenRepository from "../localStorage/access-token-repository";
+import jwtDecode from "jwt-decode";
 
 export function loginRequest(loginData: CredentialsDTO) {
 
@@ -12,8 +13,8 @@ export function loginRequest(loginData: CredentialsDTO) {
         Authorization: "Basic " + window.btoa(CLIENT_ID + ":" + CLIENT_SECRET)
     }
 
-    const requestBody = QueryString.stringify({...loginData, grant_type: "password"});
-    
+    const requestBody = QueryString.stringify({ ...loginData, grant_type: "password" });
+
     const config: AxiosRequestConfig = {
         method: "POST",
         url: "/oauth/token",
@@ -32,4 +33,20 @@ export function saveAccessToken(token: string) {
 }
 export function getAccessToken() {
     return accessTokenRepository.get();
+}
+
+export function getAccessTokenPayload(): AccessTokenPayloadDTO | undefined {
+    try {
+        // Pegar o token
+        const token = accessTokenRepository.get(); 
+        // Decodificar o token
+        return token == null ? undefined : (jwtDecode(token) as AccessTokenPayloadDTO);
+    } catch (error) {
+        return undefined;
+    }
+}
+export function isAuthenticated(): boolean {
+    let tokenPayload = getAccessTokenPayload();
+    // Testar se está autenticado e NÃO expirado
+    return tokenPayload && tokenPayload.exp * 1000 > Date.now() ? true : false;
 }

@@ -3,7 +3,7 @@ import ClientHome from './routes/ClientHome';
 import Catalog from './routes/ClientHome/Catalog';
 import ProductDetails from './routes/ClientHome/ProductDetails';
 import Cart from './routes/ClientHome/Cart';
-import Login from './routes/ClientHome/Login';
+import Login from './routes/Admin/Login';
 import Admin from './routes/Admin';
 import AdminHome from './routes/Admin/AdminHome';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
