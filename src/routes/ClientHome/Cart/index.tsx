@@ -9,7 +9,7 @@ export default function Cart() {
 
     const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
 
-    const {setContextCartCount} = useContext(ContextCartCount);
+    const { setContextCartCount } = useContext(ContextCartCount);
 
     function handleClearClick() {
         cartService.clearCart();
@@ -17,16 +17,12 @@ export default function Cart() {
     }
 
     function handleIncreaseItem(productId: number) {
-        // Incrementar no Local Storage
         cartService.increaseItem(productId);
-        // Incrementar no Componente
         setCart(cartService.getCart());
     }
 
     function handleDecreaseItem(productId: number) {
-        // Decrementar no Local Storage
         cartService.decreaseItem(productId);
-        // Decrementar no Componente
         updateCart();
     }
 
@@ -43,7 +39,7 @@ export default function Cart() {
                     cart.items.length === 0
                         ? (
                             <div>
-                                <h2 className='dsc-section-title dsc-mb20'>Seu carrinho está vázio !</h2>
+                                <h2 className="dsc-section-title dsc-mb20">Seu carrinho está vazio</h2>
                             </div>
                         )
                         : (
@@ -68,6 +64,7 @@ export default function Cart() {
                                         </div>
                                     ))
                                 }
+
                                 <div className="dsc-cart-total-container">
                                     <h3>R$ {cart.total.toFixed(2)}</h3>
                                 </div>

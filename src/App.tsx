@@ -9,6 +9,7 @@ import Catalog from './routes/ClientHome/Catalog';
 import ProductDetails from './routes/ClientHome/ProductDetails';
 import { ContextCartCount } from './utils/context-cart';
 import { history } from './utils/history';
+import { PrivateRoute } from './components/PrivateRoute';
 
 export default function App() {
 
@@ -25,11 +26,10 @@ export default function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
           </Route>
-          <Route path='/admin/' element={<Admin />}>
+          <Route path="/admin/" element={<PrivateRoute><Admin /></PrivateRoute>}>
             <Route index element={<AdminHome />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />}>
-          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </HistoryRouter>
     </ContextCartCount.Provider>

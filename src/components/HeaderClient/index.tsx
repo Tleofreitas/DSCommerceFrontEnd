@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import CartIcon from '../CartIcon';
 import './styles.css';
-import { Link } from 'react-router-dom';
 
 export default function HeaderClient() {
+
     return (
         <header className="dsc-header-client">
             <nav className="dsc-container">
@@ -17,9 +18,6 @@ export default function HeaderClient() {
                             </div>
                         </Link>
                     </div>
-                    <Link to="/login">
-                        <a href="#">Entrar</a>
-                    </Link>
                 </div>
             </nav>
         </header>
