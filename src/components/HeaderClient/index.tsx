@@ -5,6 +5,7 @@ import * as authService from '../../services/auth-service';
 import { ContextToken } from '../../utils/context-token';
 import CartIcon from '../CartIcon';
 import './styles.css';
+import LoggedUser from '../LoggedUser';
 
 export default function HeaderClient() {
 
@@ -33,6 +34,7 @@ export default function HeaderClient() {
                             </div>
                         </Link>
                     </div>
+                    <LoggedUser />
                 </div>
             </nav>
         </header>
