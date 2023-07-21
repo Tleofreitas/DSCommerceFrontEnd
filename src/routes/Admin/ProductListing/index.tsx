@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ProductDTO } from '../../../models/product';
-import * as productService from '../../../services/product-service';
 import deleteIcon from '../../../assets/delete.svg';
 import editIcon from '../../../assets/edit.svg';
+import ButtonNextPage from '../../../components/ButtonNextPage';
+import SearchBar from '../../../components/SearchBar';
+import { ProductDTO } from '../../../models/product';
+import * as productService from '../../../services/product-service';
 import './styles.css';
 
 type QueryParams = {
@@ -28,6 +30,15 @@ export default function ProductListing() {
             });
     }, [queryParams]);
 
+    function handleSearch(searchText: string) {
+        setProducts([]);
+        setQueryParams({ ...queryParams, page: 0, name: searchText });
+    }
+
+    function handleNextPageClick() {
+        setQueryParams({ ...queryParams, page: queryParams.page + 1 })
+    }
+
     return (
         <main>
             <section id="product-listing-section" className="dsc-container">
@@ -37,11 +48,7 @@ export default function ProductListing() {
                     <div className="dsc-btn dsc-btn-white">Novo</div>
                 </div>
 
-                <form className="dsc-search-bar">
-                    <button type="submit">🔎︎</button>
-                    <input type="text" placeholder="Nome do produto" />
-                    <button type="reset">❌</button>
-                </form>
+                <SearchBar onSearch={handleSearch} />
 
                 <table className="dsc-table dsc-mb20 dsc-mt20">
                     <thead>
@@ -69,8 +76,10 @@ export default function ProductListing() {
                         }
                     </tbody>
                 </table>
-
-                <div className="dsc-btn-next-page">Carregar mais</div>
+                {
+                    !isLastPage &&
+                    <ButtonNextPage onNextPage={handleNextPageClick} />
+                }
             </section>
         </main>
     )
