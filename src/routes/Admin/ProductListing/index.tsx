@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import deleteIcon from '../../../assets/delete.svg';
 import editIcon from '../../../assets/edit.svg';
 import ButtonNextPage from '../../../components/ButtonNextPage';
+import DialogConfirmation from '../../../components/DialogConfirmation';
 import DialogInfo from '../../../components/DialogInfo';
 import SearchBar from '../../../components/SearchBar';
 import { ProductDTO } from '../../../models/product';
@@ -16,8 +17,15 @@ type QueryParams = {
 export default function ProductListing() {
     const [dialogInfoData, setDialogInfoData] = useState({
         visible: false,
-        message: "Operação com sucesso"
+        message: "Operação com sucesso!"
     });
+
+    const [dialogConfirmationData, setDialogConfirmationData] = useState({
+        visible: false,
+        id: 0,
+        message: "Tem certeza?"
+    });
+
     const [isLastPage, setIsLastPage] = useState(false);
     const [products, setProducts] = useState<ProductDTO[]>([]);
     const [queryParams, setQueryParams] = useState<QueryParams>({
@@ -47,8 +55,24 @@ export default function ProductListing() {
         setDialogInfoData({ ...dialogInfoData, visible: false });
     }
 
-    function handleDeleteClick() {
-        setDialogInfoData({ ...dialogInfoData, visible: true });
+    function handleDeleteClick(productId: number) {
+        setDialogConfirmationData({ ...dialogConfirmationData, id: productId, visible: true });
+    }
+
+    function handleDialogConfirmationAnswer(answer: boolean, productId: number) {
+        if (answer) {
+            productService.deleteById(productId)
+                .then(() => {
+                    setProducts([]);
+                    setQueryParams({ ...queryParams, page: 0 });
+                }).catch(error => {
+                    setDialogInfoData({
+                        visible: true,
+                        message: error.response.data.error
+                    });
+                })
+        }
+        setDialogConfirmationData({ ...dialogConfirmationData, visible: false });
     }
 
     return (
@@ -82,7 +106,7 @@ export default function ProductListing() {
                                     <td className="dsc-tb768">R$ {product.price.toFixed(2)}</td>
                                     <td className="dsc-txt-left">{product.name}</td>
                                     <td><img className="dsc-product-listing-btn" src={editIcon} alt="Editar" /></td>
-                                    <td><img onClick={handleDeleteClick} className="dsc-product-listing-btn" src={deleteIcon} alt="Deletar" /></td>
+                                    <td><img onClick={() => handleDeleteClick(product.id)} className="dsc-product-listing-btn" src={deleteIcon} alt="Deletar" /></td>
                                 </tr>
                             ))
                         }
@@ -98,6 +122,14 @@ export default function ProductListing() {
                 <DialogInfo message={dialogInfoData.message}
                     onDialogClose={handleDialogInfoClose}
                 />
+            }
+
+            {
+                dialogConfirmationData.visible &&
+                <DialogConfirmation
+                    id={dialogConfirmationData.id}
+                    message={dialogConfirmationData.message}
+                    onDialogAnswer={handleDialogConfirmationAnswer} />
             }
         </main>
     )

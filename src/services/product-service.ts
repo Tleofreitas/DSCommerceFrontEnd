@@ -8,7 +8,7 @@ import { BASE_URL } from "../utils/system";
 // }
 
 export function findPageRequest(page: number, name: string, size = 12, sort = "name") {
-    const config : AxiosRequestConfig = {
+    const config: AxiosRequestConfig = {
         // Parâmetros de pesquisa
         method: "GET",
         baseURL: BASE_URL,
@@ -21,5 +21,14 @@ export function findPageRequest(page: number, name: string, size = 12, sort = "n
 }
 
 export function findById(id: number) {
-    return requestBackEnd({url: `/products/${id}`});
+    return requestBackEnd({ url: `/products/${id}` });
+}
+
+export function deleteById(id: number) {
+    const config: AxiosRequestConfig = {
+        method: "DELETE",
+        url: `/products/${id}`,
+        withCredentials: true
+    }
+    return requestBackEnd(config);
 }
