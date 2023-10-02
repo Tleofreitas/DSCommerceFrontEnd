@@ -54,12 +54,11 @@ export default function ProductForm() {
         const name = event.target.name;
         const dataUpdated = forms.update(formData, name, value);
         const dataValidated = forms.validate(dataUpdated, name);
-        setFormData(dataValidated);
+        setFormData(forms.updateAndValidate(formData, name, value));
     }
 
     function handleInputTurnDirty(name: string) {
-        const newFormData = forms.toDirty(formData, name);
-        setFormData(newFormData);
+        setFormData(forms.dirtyAndValidate(formData, name));
     }
 
     return (
