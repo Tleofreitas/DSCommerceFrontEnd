@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import FormInput from '../../../components/FormImput';
 import * as productService from '../../../services/product-service';
 import * as forms from '../../../utils/forms';
+import FormTextArea from '../../../components/FormTextArea';
 
 export default function ProductForm() {
 
@@ -39,6 +40,17 @@ export default function ProductForm() {
             type: "text",
             placeholder: "Image",
         },
+        description: {
+            value: "",
+            id: "description",
+            name: "description",
+            type: "text",
+            placeholder: "Descrição",
+            validation: function (value: string) {
+                return /^.{10,}$/.test(value);
+            },
+            message: "A descrição com minimo de 10 caracteres!"
+        }
     });
 
     useEffect(() => {
@@ -101,7 +113,17 @@ export default function ProductForm() {
                                 />
                             </div>
                         </div>
-
+                        <div>
+                            <FormTextArea
+                                {...formData.description}
+                                className="dsc-form-control dsc-textarea"
+                                onTurnDirty={handleInputTurnDirty}
+                                onChange={handleInputChange}
+                            />
+                            <div className='dsc-form-error'>
+                                {formData.description.message}
+                            </div>
+                        </div>
                         <div className="dsc-product-form-buttons">
                             <Link to="/admin/products">
                                 <button type="reset" className="dsc-btn dsc-btn-white">Cancelar</button>
