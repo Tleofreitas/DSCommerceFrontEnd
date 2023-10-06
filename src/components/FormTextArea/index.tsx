@@ -11,7 +11,7 @@ export default function FormTextArea(props: any) {
         onTurnDirty(props.name);
     }
     return (
-        <input
+        <textarea
             {...textAreaProps}
             onBlur={handleBlur}
             data-invalid={invalid}
