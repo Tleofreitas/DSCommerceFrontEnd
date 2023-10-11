@@ -63,12 +63,12 @@ Certifique-se de ter o Git, JDK17 e YARN instalados e siga as instruções abaix
   >> As informações foram extraídas para a pasta Mod10_FrontEnd-main.
 
   # Abrir o projeto BackEnd
-  > Em sua IDE de preferência(utilizei Intellij), importe a pasta **BackEnd** e faça o update das dependências do **maven**.
+  > Em sua IDE de preferência(utilizei Intellij), importe a pasta BackEnd e faça o update das dependências maven.
   >> Executar o projeto (pode ser acessado um navegador da Web em http://localhost:8080/).
 
   # Abrir o projeto FrontEnd
   > Abra o cmd como Administrador.
-  >> Acesse o local da pasta Mod10_FrontEnd-msin / FrontEnd e digite o comando Yarn.
+  >> Acesse a pasta Mod10_FrontEnd-msin / FrontEnd e digite o comando Yarn.
   >> Aguarde o processo e então digite o comando yarn dev. Acesse a aplicação em http://http://localhost:5173/
 
 ```
