@@ -47,7 +47,7 @@ Link para download:
 https://www.win-rar.com/download.html
 ---
 ## 📦️ *Como executar o programa*
-Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo:
+Certifique-se de ter o Git, JDK17 e YARN instalados e siga as instruções abaixo:
 ```bash
   # Clone o repositório
   ❯ Clique no botão Code, depois em Download ZIP e salve o arquivo.
@@ -55,21 +55,23 @@ Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo:
   # Extrair arquivos sem Winrar
   > Abra a pasta onde o arquivo foi salvo.
   >> Clique com o botão direito sobre o arquivo e selecione Extrair Tudo.
-  >>> As informações foram extraídas para a pasta ExactTime-main.
+  >> As informações foram extraídas para a pasta Mod10_FrontEnd-main.
 
   # Extrair arquivos com Winrar
   > Abra a pasta onde o arquivo foi salvo.
   >> Clique com o botão direito sobre o arquivo e selecione Extrair Aqui (Extract Here em inglês).
-  >>> As informações foram extraídas para a pasta ExactTime-main.
+  >> As informações foram extraídas para a pasta Mod10_FrontEnd-main.
 
-	# Abrir o projeto
-  ❯ AAAA
+  # Abrir o projeto BackEnd
+  > Em sua IDE de preferência(utilizei Intellij), importe a pasta **BackEnd** e faça o update das dependências do **maven**.
+  >> Executar o projeto (pode ser acessado um navegador da Web em http://localhost:8080/).
+
+  # Abrir o projeto FrontEnd
+  > Abra o cmd como Administrador.
+  >> Acesse o local da pasta Mod10_FrontEnd-msin / FrontEnd e digite o comando Yarn.
+  >> Aguarde o processo e então digite o comando yarn dev. Acesse a aplicação em http://http://localhost:5173/
+
 ```
-
-- Em sua IDE de preferência(utilizei Intellij), importe a pasta **BackEnd** e faça o update das dependências do **maven**.
-
-- Ao executar o projeto, pode ser acessado um navegador da Web em http://localhost:8080/
-
 - Collections do postman para fazer as requisições GET/PUT/DELETE E UPDATE para criação do usuário, lançar as pedidos e consultar todos os produtos. Obs: Será necessário configurar a variáveis de ambiente no postman.  
 
    - Dados para login: maria@gmail.com (cliente) e alex@gmai.com (cliente e administrador).  
