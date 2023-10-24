@@ -77,5 +77,3 @@ Certifique-se de ter o Git, JDK17 e YARN instalados e siga as instruções abaix
    - Dados para login: maria@gmail.com (cliente) e alex@gmai.com (cliente e administrador).  
 
    - senha: 123456
-
-- Link da Collections do postman: https://www.getpostman.com/collections/2d18991dfa57a1f44592
