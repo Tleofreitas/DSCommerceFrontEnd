@@ -1,8 +1,7 @@
 # Projeto E-commerce DSCommerce
-Projeto desenvolvido onde o objetivo foi de criar um API Rest e-commerce, utilizando os padrões de arquitetura em camadas.
-Pontos que foram vistos até chegar ao resultado final:
-- Layout HTML e CSS
-- Componentes React
+Projeto desenvolvido onde o objetivo foi de criar uma aplicação web e-commerce.
+Pontos que foram vistos até alcançar o resultado final:
+- Componentes React, layout com HTML e CSS
 - Props, Rotas
 - Hooks useState, useEffect, requisições
 - Local storage e lógica de carrinho de compras
@@ -14,7 +13,7 @@ Pontos que foram vistos até chegar ao resultado final:
 ## *Features (Funcionalidades)*
 Com o backend rodando simultaneamente, como CLIENTE pode-se:
 - Consultar a lista de produtos disponíveis (Catálogo)
-- Pesquisar produtos por nome
+- Pesquisar produtos por nome (Catálogo)
 - Adicionar e remover produtos do carrinho
 - Alterar a quantidade de unidades que está no carrinho (remover item do carrinho)
 - Logar-se / Deslogar-se
@@ -22,16 +21,15 @@ Com o backend rodando simultaneamente, como CLIENTE pode-se:
 
 Com o backend rodando simultaneamente, como ADMINISTRADOR pode-se:
 - Visualizar a lista de produtos
-- Pesquisar produto específico na lista de produtos
-- Adicionar, Alterar ou Excluir produtos
+- Pesquisar produto por nome (Catálogo e Página Administradora)
+- Adicionar, Alterar ou Excluir produtos (Página Administradora)
 - Logar-se / Deslogar-se
 
 ---
 ## 👨‍💻️ *Tecnologias Utilizadas*
 Esse projeto foi criado utilizando as tecnologias:
-### Back-End  -> Java, Springboot, JPA, Maven, H2 Database, OAuth2, JWT, Postman
 ### Front-End  ->  HTML5, CSS3, TypeScript, React
-### Editor  -> [Visual Studio Code](https://code.visualstudio.com/), [IntelliJ](https://www.jetbrains.com/idea/download/?fromIDE=&section=windows), [Spring Tools (STS)](https://spring.io/tools)
+### Editor  -> [Visual Studio Code](https://code.visualstudio.com/)
 
 ---
 ## *Pré-requisitos de instalação* 
