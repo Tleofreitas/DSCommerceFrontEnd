@@ -37,7 +37,7 @@ Video tutorial aqui
 
 ---
 ### Teste local
-Veja o passo a passo [aqui](https://github.com/Tleofreitas/DSCommerceBackEnd/tree/main/Teste%20Local)
+Veja o passo a passo [aqui](https://github.com/Tleofreitas/DSCommerceFrontEnd/tree/main/Teste%20Local)
 
 ---
 ## *Dúvidas? Contate-me*
