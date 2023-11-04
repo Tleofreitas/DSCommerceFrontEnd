@@ -1,4 +1,4 @@
-import { categoryDTO } from "./category";
+import { CategoryDTO } from "./category";
 
 export type ProductDTO = {
     id: number;
@@ -6,5 +6,5 @@ export type ProductDTO = {
     description: string;
     price: number;
     imgUrl: string;
-    categories: categoryDTO[];
+    categories: CategoryDTO[];
 }
