@@ -1,4 +1,6 @@
 # Projeto E-commerce DSCommerce
+[Visualizar projeto online](https://dscommerce-front.vercel.app/)
+
 Projeto desenvolvido onde o objetivo foi de criar uma aplicação web e-commerce.
 Pontos que foram vistos até alcançar o resultado final:
 - Componentes React, layout com HTML e CSS
@@ -11,19 +13,22 @@ Pontos que foram vistos até alcançar o resultado final:
 
 ---
 ## *Features (Funcionalidades)*
-Com o backend rodando simultaneamente, como CLIENTE pode-se:
-- Consultar a lista de produtos disponíveis (Catálogo)
-- Pesquisar produtos por nome (Catálogo)
-- Adicionar e remover produtos do carrinho
-- Alterar a quantidade de unidades que está no carrinho (remover item do carrinho)
+Com o back-end rodando simultaneamente, pode-se:
+
+Com perfill <i><strong>CLIENTE:</strong></i>
+- Cabeçalho cliente: link para home, link entrar/sair, contagem de itens do carrinho
+- Tela de catálogo: listagem paginada, filtro por nome, botão próxima página 
+- Tela de detalhes do produto
+- Tela de carrinho: listagem de itens, mudança de quantidades, subtotais e total
 - Logar-se / Deslogar-se
+- Tela de login: validação de email, mensagem de erro em caso de credenciais inválidas
 - Realizar a compra fictícia gerando o número de pedido
 
-Com o backend rodando simultaneamente, como ADMINISTRADOR pode-se:
-- Visualizar a lista de produtos
-- Pesquisar produto por nome (Catálogo e Página Administradora)
-- Adicionar, Alterar ou Excluir produtos (Página Administradora)
-- Logar-se / Deslogar-se
+Com perfill <i><strong>ADMINISTRADOR:</strong></i>
+- Todas as funcionalidades do perfil CLIENTE
+- Cabeçalho admin: menu de navegação home/produtos/sair.
+- Tela de listagem de produtos: listagem paginada, filtro por nome, botão próxima página
+- Adicionar, Alterar ou Excluir produtos
 
 ---
 ## 👨‍💻️ *Tecnologias Utilizadas*
