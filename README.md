@@ -1,7 +1,10 @@
 # Projeto E-commerce DSCommerce
 [Visualizar projeto online](https://dscommerce-front.vercel.app/)
 
-Projeto desenvolvido onde o objetivo foi de criar uma aplicação web e-commerce.
+Criar uma aplicação web e-commerce, conforme design Figma abaixo:
+
+[Ver o layout no figma...](https://www.figma.com/file/ZrGNVNG0kZL6txDv4G8P6s/DSCommerce?type=design&node-id=0-1&mode=design&t=7QGEsxyTyKWVZ9ll-0)
+
 Pontos que foram vistos até alcançar o resultado final:
 - Componentes React, layout com HTML e CSS
 - Props, Rotas
